@@ -1,0 +1,110 @@
+
+:root {
+    --bs-primary: #046A38;
+    --bs-primary-rgb: 4, 106, 56;
+    --bs-success: #FFC107; 
+    --bs-success-rgb: 255, 193, 7;
+}
+
+.btn-success, .btn-outline-success:hover { color: #000 !important; }
+.btn-outline-success { color: #000; }
+.bg-primary { background-color: var(--bs-primary) !important; }
+.text-primary { color: var(--bs-primary) !important; }
+.btn-primary { background-color: var(--bs-primary); border-color: var(--bs-primary); }
+.btn-primary:hover { background-color: #03522c; border-color: #03522c; }
+
+
+.auth-bg {
+    position: relative;
+    min-height: calc(100vh - 56px - 73px); 
+    display: flex;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    overflow: hidden; 
+}
+.auth-bg::before {
+    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('../img/hero-bg.jpg'); background-size: cover; background-position: center;
+    filter: blur(1px); -webkit-filter: blur(1px); z-index: -1; opacity: 0.6;
+}
+.auth-bg .card { background-color: rgba(255, 255, 255, 0.95); }
+
+
+#seat-map-container {
+    background-color: #f8f9fa; padding: 20px; border-radius: 10px; border: 1px solid #dee2e6;
+    max-width: 450px; margin: 20px auto; overflow-x: auto;
+}
+.seat-row {
+    display: flex !important; 
+    justify-content: center;
+    margin-bottom: 8px;
+    width: 100%;
+}
+.seat {
+    border: 1px solid #adb5bd; padding: 0; margin: 3px; border-radius: 4px; cursor: pointer;
+    text-align: center; font-weight: bold; width: 38px; height: 38px; line-height: 36px;
+    background-color: #ffffff; color: #495057; transition: all 0.2s ease-in-out; flex-shrink: 0;
+}
+.seat.aisle { border: none; background-color: transparent; cursor: default; width: 25px; }
+.seat.booked-male   { background-color: #add8e6 !important; color: #000 !important; cursor: not-allowed !important; border-color: #90c5e2 !important; }
+.seat.booked-female { background-color: #ffb6c1 !important; color: #000 !important; cursor: not-allowed !important; border-color: #f7a0ac !important; }
+.seat.selected      { background-color: var(--bs-success) !important; color: #000 !important; border-color: #e6ac00 !important; transform: scale(1.1); box-shadow: 0 0 10px rgba(255,193,7,0.5); }
+.seat.disabled-adjacent { background-color: #e9ecef !important; color: #adb5bd !important; cursor: not-allowed !important; border-color: #dee2e6 !important; }
+
+
+.seat[disabled] {
+    cursor: not-allowed !important;
+    opacity: 0.7 !important;
+     background-color: #e9ecef !important; 
+     color: #adb5bd !important;
+     border-color: #dee2e6 !important;
+}
+
+.seat:not(.aisle):not([disabled]):not(.disabled-adjacent):hover {
+     background-color: #d1e7dd;
+     border-color: #a3cfbb;
+     transform: scale(1.05);
+}
+
+.gender-selection label { transition: all 0.2s ease-in-out; }
+.gender-selection input[type="radio"]:checked + label { box-shadow: 0 0 5px rgba(4, 106, 56, 0.5); }
+
+.admin-content-bg {
+    position: relative; 
+    overflow: hidden; 
+    border-radius: var(--bs-border-radius);
+    padding: 2rem; 
+}
+
+
+.admin-content-bg {
+    position: relative; 
+    overflow: hidden; 
+    border-radius: var(--bs-border-radius); 
+    padding: 1.5rem; 
+    color: white; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); 
+}
+
+.admin-content-bg::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background-image: url('../img/hero-bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    z-index: -1; 
+   
+}
+
+
+.admin-content-bg a {
+    color: #ffc107; 
+}
+.admin-content-bg a:hover {
+    color: #ffe08a; 
+}
