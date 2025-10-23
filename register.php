@@ -24,9 +24,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         try {
-            $sql = "INSERT INTO Users (fullname, email, password) VALUES (?, ?, ?)";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute([$fullname, $email, $hashed_password]);
+            
+               $sql = "INSERT INTO Users (fullname, email, password, balance) VALUES (?, ?, ?, 800)"; 
+               $stmt = $pdo->prepare($sql);
+               $stmt->execute([$fullname, $email, $hashed_password]);
             $success_message = "Kayıt işlemi başarılı! Giriş yapabilirsiniz.";
         } catch (PDOException $e) {
             if ($e->getCode() == 23000) {

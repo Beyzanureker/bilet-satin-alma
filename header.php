@@ -1,9 +1,4 @@
-<?php
-session_start();
-
-require_once 'db.php';
-?>
-<!DOCTYPE html>
+<?php require_once 'db.php'; ?><!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +8,7 @@ require_once 'db.php';
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-    <link rel="stylesheet" href="css/custom.css"> 
+    <link rel="stylesheet" href="css/custom.css">
 
     <title><?php echo isset($page_title) ? $page_title . ' - ' . SITE_NAME : SITE_NAME; ?></title>
     <link rel="icon" href="img/logo.png" type="image/png">
@@ -24,14 +19,14 @@ require_once 'db.php';
     <div class="container">
        <a class="navbar-brand d-flex align-items-center" href="index.php">
       <img src="img/logo.png" alt="Pusula Logo" width="100" class="me-2">
-  
+
 </a>
      <div class="d-flex">
     <?php
     if (isset($_SESSION['user_id'])) {
         echo '<span class="navbar-text me-3">Hoş Geldin, ' . htmlspecialchars($_SESSION['user_fullname']) . '!</span>';
         echo '<a href="my_tickets.php" class="btn btn-light me-2">Biletlerim</a>';
-        echo '<a href="profile.php" class="btn btn-info me-2">Profilim</a>'; 
+        echo '<a href="profile.php" class="btn btn-info me-2">Profilim</a>';
 
         if ($_SESSION['user_role'] == 'Admin' || $_SESSION['user_role'] == 'Firma Admin') {
             echo '<a href="admin_panel.php" class="btn btn-warning me-2">Admin Paneli</a>';

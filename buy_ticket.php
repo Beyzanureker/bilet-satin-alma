@@ -1,9 +1,15 @@
 <?php
+ob_start();
+require_once 'db.php';
+
+if (!isset($_SESSION['user_id'])) {
+    ob_end_clean();
+    header("Location: login.php?error=Bilet almak için giriş yapmalısınız.&intended=" . urlencode($_SERVER['REQUEST_URI']));
+    exit;
+}
+
 $page_title = 'Koltuk Seçimi';
 require_once 'header.php';
-
-
-if (!isset($_SESSION['user_id'])) { header("Location: login.php?error=Bilet almak için giriş yapmalısınız.&intended=" . urlencode($_SERVER['REQUEST_URI'])); exit; }
 
 
 $trip = null; $booked_seats_info = []; $error_message = ''; $success_message = '';
